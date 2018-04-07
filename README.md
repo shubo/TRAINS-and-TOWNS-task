@@ -11,12 +11,24 @@ while moving if some finded path will not match with max length or max stops con
 and finally when they meets in one or more points last time checks conditions and they saving.
 this process will continue until one of sides can not to move because condition filteres them. after that process returns saved paths which is different routes between start and end points.
 
+###Input params example
+'AL5, LC4, CW8, WC8, WG6, AW5, CG2, GL3, AG7' C-W-G-L [, max length, max stops]
+or
+AL5,LC4,CW8,WC8,WG6,AW5,CG2,GL3,AG7 C-W-G-L [, max length, max stops]
+first param is graph, secod is route. max length and max stops is optional params, if they are not declared then 
+by default max length = 30, max stops = 7
+ 
+
+###Output
+Distance:  17
+Different routes count: 3
+
+
+
 ### Running in terminal
 ```shell
 cd appFolder
 node TT.js [graph] [route] [maxLength maxStops]
 ```
-
-maxLength and maxStops is optional inputs, by default maxLength = 30, maxStops = 7
 
 
