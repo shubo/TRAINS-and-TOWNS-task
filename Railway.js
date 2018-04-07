@@ -10,7 +10,11 @@
 
 const Railway = (function(){
 
+    var diffRoutesResult;
+
     function graphItemValueCtrl(item){
+
+        item = item.trim();
 
         const isStringType = Object.prototype.toString.call(item) === '[object String]';
         const hasEnoughSize = item.length > 2;
@@ -35,11 +39,6 @@ const Railway = (function(){
         if( graph.indexOf(',') !== -1 ){
 
             parsedGraph = graph.split(',');
-        
-            for(let graphItem of parsedGraph){
-    
-                graphItem = graphItem.trim();
-            }
             
             if( parsedGraph.every( graphItemValueCtrl ) ){
                 
@@ -69,7 +68,7 @@ const Railway = (function(){
             let to = route.charAt(1);
             let length = route.substr(2, route.length);
 
-            formattedGraph.push( {from: from, to: to, length: length, stop: 0} );
+            formattedGraph.push( {from: from, to: to, length: length, stop: -1} );
         }
 
         callback( formattedGraph );
@@ -176,6 +175,10 @@ const Railway = (function(){
 
                 let lastFiltereds = [];
 
+                // console.log(`from item: ${JSON.stringify(fromItem)}`);
+                // console.log('finded in crossings');
+                // console.log(filteredArray);
+
                 for(let filteredItem of filteredArray){
 
                     let distance = parseInt(filteredItem.length) + parseInt(fromItem.length);
@@ -183,7 +186,7 @@ const Railway = (function(){
 
                     if( distance <= parseInt(params.maxLength) && stop <= parseInt(params.maxStop)){
                         
-                        lastFiltereds.push(filteredItem);
+                        lastFiltereds.push({from: filteredItem.from, to: filteredItem.to, length: filteredItem.length, stop: filteredItem.stop});
                     }
                 }
 
@@ -210,38 +213,19 @@ const Railway = (function(){
                     return graphItem.from === foundItem.from && graphItem.to === foundItem.to;
                 });
 
+                // console.log(`fromItem: ${JSON.stringify(fromItem)}, foundItem: ${JSON.stringify(foundItem)}, itemFromGraph: ${JSON.stringify(itemFromGraph)}`);
+
                 let distance = foundItem.length + fromItem.length - parseInt(itemFromGraph.length);
                 let stop = foundItem.stop + fromItem.stop - parseInt(itemFromGraph.stop);
 
                 if( distance <= params.maxLength && stop <= params.maxStop ){
 
-                    sameDirections.push( fromItem );
+                    sameDirections.push({from: fromItem.from, to: fromItem.to, length: fromItem.length, stop: fromItem.stop});
                 }
             }
         }
 
         callback(sameDirections);
-    }
-
-    function clearFormattedGraph(formattedGraph, points, callback){
-
-        for( let point of points ){
-
-            formattedGraph.splice( formattedGraph.indexOf(point), (formattedGraph.indexOf(point) === -1)? -1 : 1 );
-        }
-
-        callback();
-    }
-
-    function clearFromTos(froms, tos, points, callback){
-
-        for(let point of points){
-
-            froms.splice( froms.indexOf(point), (froms.indexOf(point) === -1)? -1 : 1 );
-            tos.splice( tos.indexOf(point), (tos.indexOf(point) === -1)? -1 : 1 );
-        }
-
-        callback();
     }
 
     function collectEdges(froms, tos, callback){
@@ -353,9 +337,8 @@ const Railway = (function(){
                     
                     }else{
 
-                        callback(differentRoutes);
+                        callback( differentRoutes );
                     }
-
                 });
             });
 
@@ -375,8 +358,21 @@ const Railway = (function(){
         
         findDiffRouts(formattedGraph, edgePointObj, params, (diffs) => {
 
+            diffRoutesResult = diffs;
             callback(diffs);
         });
+    }
+
+    function findShortRouteLength(differentRoutes, callback){
+
+        let routesLength = [];
+
+        for(let route of differentRoutes){
+
+            routesLength.push( route.length );
+        }
+
+        callback( Math.min(...routesLength) );
     }
 
     return {
@@ -386,7 +382,8 @@ const Railway = (function(){
         parseRoute: parseRoute,
         formatParsedRoute: formatParsedRoute,
         distance: distance,
-        diffRoutes: diffRoutes
+        diffRoutes: diffRoutes,
+        findShortRouteLength: findShortRouteLength
     }
 
 }());

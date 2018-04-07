@@ -35,8 +35,13 @@ function main(){
     
                                     railway.diffRoutes( formattedGraph, formattedRoute, params, (diffroutes) => {
     
-                                        // console.log(`Different routes: ${JSON.stringify(diffroutes)} and count: ${diffroutes.length}`);
                                         console.log(`Different routes count: ${diffroutes.length}`);
+
+                                        railway.findShortRouteLength(diffroutes, (shortRouteLength) => {
+
+                                            console.log(`Short Route Length: ${shortRouteLength}`);
+                                        });
+
                                     });
                                 }
     
