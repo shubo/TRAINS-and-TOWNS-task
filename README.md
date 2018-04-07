@@ -3,9 +3,9 @@ This code is in pure event driven architecture without Promise and Async/Await.
 Algorithm calculates 
 - distance through route 
 - different routes count by
- - graph 
- - route 
- - [max distance, max stops]
+  - graph 
+  - route 
+  - [max distance, max stops]
 
 ## Getting Started
 ### Algorithm introduction
