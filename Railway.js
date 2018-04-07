@@ -1,13 +1,3 @@
-// graph input: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7 | +
-// parsed graph: [AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7] | +
-// formatted Graph: [{from: 'A', to: 'B', length: 5}, {from: 'B', to: 'C', length: 4}, ...] | +
-// route for calcs: A-E-B-C-D | +
-// parsed route: [A, E, B, C, D] | +
-// formatted route: [{from: 'A', to: 'E'}, {from: 'E', to: 'B'}, ...] | +
-// calc distance formatted route by formatted Graph | +
-// diff Routes formatted route edges(A---D) by formatted Graph
-// shortes Routes formatted route edges(A---D) by formatted Graph
-
 const Railway = (function(){
 
     var diffRoutesResult;
