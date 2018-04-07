@@ -132,7 +132,7 @@ const Railway = (function(){
                 
                 distance += parseInt(matchedGraphItem.length);
                 
-                console.log('matched graph item: ', matchedGraphItem);
+                // console.log('matched graph item: ', matchedGraphItem);
             }
         }
 
@@ -274,8 +274,8 @@ const Railway = (function(){
                 
                 let lastFiltereds = [];
 
-                console.log('from filtereds');
-                console.log(filteredArray);
+                // console.log('from filtereds');
+                // console.log(filteredArray);
 
                 for(let filteredItem of filteredArray){
 
@@ -293,8 +293,8 @@ const Railway = (function(){
             });
         }
 
-        console.log('froms: ');
-        console.log(froms);
+        // console.log('froms: ');
+        // console.log(froms);
 
         for(let toPoint of edgePointObj.tos){
 
@@ -302,8 +302,8 @@ const Railway = (function(){
     
                 let lastFiltereds = [];
 
-                console.log('to filtereds');
-                console.log(filteredArray);
+                // console.log('to filtereds');
+                // console.log(filteredArray);
 
                 for(let filteredItem of filteredArray){
 
@@ -321,8 +321,8 @@ const Railway = (function(){
             });
         }
         
-        console.log('tos: ');
-        console.log(tos);
+        // console.log('tos: ');
+        // console.log(tos);
 
         findCrossingPoints(froms, tos, params, (crossingPoints) => {
             
@@ -330,7 +330,7 @@ const Railway = (function(){
 
                 differentRoutes = differentRoutes.concat(crossingPoints);
                 
-                console.log(`crossing points ${JSON.stringify(crossingPoints)} \n  differentRoutes ${JSON.stringify(differentRoutes)}`);
+                // console.log(`crossing points ${JSON.stringify(crossingPoints)} \n  differentRoutes ${JSON.stringify(differentRoutes)}`);
             }
 
             findSameDirections(formattedGraph, froms, tos, params, (sameDirections) => {
@@ -339,7 +339,7 @@ const Railway = (function(){
 
                     differentRoutes = differentRoutes.concat(sameDirections);
 
-                    console.log(`same Directions ${JSON.stringify(sameDirections)} \n  differentRoutes ${JSON.stringify(differentRoutes)}`);
+                    // console.log(`same Directions ${JSON.stringify(sameDirections)} \n  differentRoutes ${JSON.stringify(differentRoutes)}`);
                 }
 
                 collectEdges(froms, tos, (newEdgeObj) => {

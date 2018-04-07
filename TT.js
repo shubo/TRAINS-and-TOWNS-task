@@ -18,7 +18,7 @@ function main(){
     
                 railway.formatParsedGraph( parsedGraph, (formattedGraph) => {
     
-                    console.log( formattedGraph );
+                    // console.log( formattedGraph );
     
                     railway.parseRoute(route, (parsedRoute) => {
     
@@ -30,12 +30,13 @@ function main(){
     
                                     railway.distance( formattedGraph, formattedRoute, (distance) => {
     
-                                        console.log('distance: ' , distance);
+                                        console.log('Distance: ' , distance);
                                     });
     
                                     railway.diffRoutes( formattedGraph, formattedRoute, params, (diffroutes) => {
     
-                                        console.log(`Different routes: ${JSON.stringify(diffroutes)} and count: ${diffroutes.length}`);
+                                        // console.log(`Different routes: ${JSON.stringify(diffroutes)} and count: ${diffroutes.length}`);
+                                        console.log(`Different routes count: ${diffroutes.length}`);
                                     });
                                 }
     
