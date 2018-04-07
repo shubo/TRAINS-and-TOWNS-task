@@ -359,7 +359,7 @@ const Railway = (function(){
         findDiffRouts(formattedGraph, edgePointObj, params, (diffs) => {
 
             diffRoutesResult = diffs;
-            console.log(diffs);
+            // console.log(diffs);
             callback(diffs);
         });
     }
