@@ -2,11 +2,10 @@
 This code is in pure event driven architecture without Promise and Async/Await. 
 Algorithm calculates 
 - distance through route 
-- different routes count which is less than max distance and through route stops is no more than max stops
-by
-- graph 
-- route 
-- [ , max distance, max stops ]
+- different routes count by
+ - graph 
+ - route 
+ - [max distance, max stops]
 
 ## Getting Started
 ### Algorithm introduction
@@ -17,11 +16,11 @@ this process will continue until one of sides can not to move because condition 
 
 ### Input params example
 ```
-'AL5, LC4, CW8, WC8, WG6, AW5, CG2, GL3, AG7' C-W-G-L [, max length, max stops]
+'AL5, LC4, CW8, WC8, WG6, AW5, CG2, GL3, AG7' C-W-G-L [ max length max stops]
 ```
 or
 ```
-AL5,LC4,CW8,WC8,WG6,AW5,CG2,GL3,AG7 C-W-G-L [, max length, max stops]
+AL5,LC4,CW8,WC8,WG6,AW5,CG2,GL3,AG7 C-W-G-L [ max length max stops]
 ```
 first param is graph, secod is route. max length and max stops is optional params, if they are not declared then 
 by default max length = 30, max stops = 7
@@ -39,5 +38,3 @@ Different routes count: 3
 cd appFolder
 node TT.js [graph] [route] [maxLength maxStops]
 ```
-
-
