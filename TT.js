@@ -15,7 +15,7 @@ function main(){
         railway.parseGraph(graph, (parsedGraph)=>{
     
             if( parsedGraph ){
-    
+
                 railway.formatParsedGraph( parsedGraph, (formattedGraph) => {
     
                     // console.log( formattedGraph );

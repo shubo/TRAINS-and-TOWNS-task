@@ -14,8 +14,6 @@ const Railway = (function(){
 
     function graphItemValueCtrl(item){
 
-        item = item.trim();
-
         const isStringType = Object.prototype.toString.call(item) === '[object String]';
         const hasEnoughSize = item.length > 2;
         const hasLength = !isNaN( item.substr(2, item.length) );
@@ -38,7 +36,7 @@ const Railway = (function(){
 
         if( graph.indexOf(',') !== -1 ){
 
-            parsedGraph = graph.split(',');
+            parsedGraph = graph.split(',').map( item => item.trim() );
             
             if( parsedGraph.every( graphItemValueCtrl ) ){
                 
