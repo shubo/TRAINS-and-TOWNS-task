@@ -186,7 +186,7 @@ const Railway = (function(){
 
                     if( distance <= parseInt(params.maxLength) && stop <= parseInt(params.maxStop)){
                         
-                        lastFiltereds.push({from: filteredItem.from, to: filteredItem.to, length: filteredItem.length, stop: filteredItem.stop});
+                        lastFiltereds.push({from: filteredItem.from, to: filteredItem.to, length: distance, stop: stop});
                     }
                 }
 
@@ -220,7 +220,7 @@ const Railway = (function(){
 
                 if( distance <= params.maxLength && stop <= params.maxStop ){
 
-                    sameDirections.push({from: fromItem.from, to: fromItem.to, length: fromItem.length, stop: fromItem.stop});
+                    sameDirections.push({from: fromItem.from, to: fromItem.to, length: distance, stop: stop});
                 }
             }
         }
@@ -359,6 +359,7 @@ const Railway = (function(){
         findDiffRouts(formattedGraph, edgePointObj, params, (diffs) => {
 
             diffRoutesResult = diffs;
+            console.log(diffs);
             callback(diffs);
         });
     }

@@ -6,6 +6,7 @@ Algorithm calculates
   - graph 
   - route 
   - [max distance, max stops]
+- short route length
 
 ## Getting Started
 ### Algorithm introduction
@@ -30,6 +31,7 @@ by default max length = 30, max stops = 7
 ```
 Distance:  17
 Different routes count: 3
+Short Route Length: 5
 ```
 
 
