@@ -17,9 +17,7 @@ function main(){
             if( parsedGraph ){
 
                 railway.formatParsedGraph( parsedGraph, (formattedGraph) => {
-    
-                    // console.log( formattedGraph );
-    
+        
                     railway.parseRoute(route, (parsedRoute) => {
     
                         if(parsedRoute){
