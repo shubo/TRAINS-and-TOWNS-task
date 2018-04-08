@@ -14,11 +14,11 @@ this process will continue until one of sides can not to move because condition 
 
 ### Input params example
 ```
-'AL5, LC4, CW8, WC8, WG6, AW5, CG2, GL3, AG7' C-W-G-L [ max length max stops]
+'AL5, LC4, CW8, WC8, WG6, AW5, CG2, GL3, AG7' C-W-G-L [max_length max_stops]
 ```
 or
 ```
-AL5,LC4,CW8,WC8,WG6,AW5,CG2,GL3,AG7 C-W-G-L [ max length max stops]
+AL5,LC4,CW8,WC8,WG6,AW5,CG2,GL3,AG7 C-W-G-L [max_length max_stops]
 ```
 first param is graph, secod is route. max length and max stops is optional params, if they are not declared then 
 by default max length = 30, max stops = 7
@@ -35,5 +35,5 @@ Short Route Length: 5
 ### Running in terminal
 ```shell
 cd appFolder
-node TT.js [graph] [route] [maxLength maxStops]
+node TT.js [graph] [route] [max_length max_stops]
 ```
